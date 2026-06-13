@@ -66,7 +66,8 @@ button:hover {
 
 <div class="container">
   <h1>📋 إدخال بيانات الفاتورة</h1>
-
+<label>اسم المؤسسة:</label>
+<input type="text" id="companyName" value="مؤسسة فلاح الهاجري للتخليص الجمركي">
   <label>اسم المنفذ:</label>
   <select id="port">
     <option>البطحاء</option>
@@ -123,6 +124,7 @@ function addCar() {
 }
 
 function generateInvoice() {
+  const companyName = document.getElementById("companyName").value;
   const port = document.getElementById("port").value;
   const declaration = document.getElementById("declaration").value;
   const date = document.getElementById("date").value;
@@ -140,7 +142,15 @@ function generateInvoice() {
     });
   });
 
-  const data = { port, declaration, date, phone, licenseNumber, carsData };
+  const data = {
+  companyName,
+  port,
+  declaration,
+  date,
+  phone,
+  licenseNumber,
+  carsData
+};
   localStorage.setItem("invoiceData", JSON.stringify(data));
   window.location.href = "invoice.html";
 }
