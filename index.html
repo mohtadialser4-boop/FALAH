@@ -66,6 +66,11 @@ button:hover {
 
 <div class="container">
   <h1>📋 إدخال بيانات الفاتورة</h1>
+  <label>اسم المسؤول:</label>
+<input type="text" id="companyOwner">
+
+<label>هاتف المؤسسة:</label>
+<input type="text" id="companyPhone">
 <label>اسم المؤسسة:</label>
 <input type="text" id="companyName" value="مؤسسة فلاح الهاجري للتخليص الجمركي">
   <label>اسم المنفذ:</label>
@@ -125,6 +130,9 @@ function addCar() {
 
 function generateInvoice() {
   const companyName = document.getElementById("companyName").value;
+const companyOwner = document.getElementById("companyOwner").value;
+const companyPhone = document.getElementById("companyPhone").value;
+  const companyName = document.getElementById("companyName").value;
   const port = document.getElementById("port").value;
   const declaration = document.getElementById("declaration").value;
   const date = document.getElementById("date").value;
@@ -144,14 +152,15 @@ function generateInvoice() {
 
   const data = {
   companyName,
+  companyOwner,
+  companyPhone,
   port,
   declaration,
   date,
   phone,
   licenseNumber,
   carsData
-};
-  localStorage.setItem("invoiceData", JSON.stringify(data));
+};  localStorage.setItem("invoiceData", JSON.stringify(data));
   window.location.href = "invoice.html";
 }
 </script>
