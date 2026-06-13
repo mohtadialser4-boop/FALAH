@@ -170,7 +170,7 @@ window.onload = () => {
   const data = JSON.parse(localStorage.getItem("invoiceData"));
   if (!data) return;
   document.getElementById("companyName").textContent =
-  data.companyName || "مؤسسة فلاح الهاجري للتخليص الجمركي";
+  data.companyName || "مؤسسة ";
   document.getElementById("port").textContent = data.port;
   document.getElementById("declaration").textContent = data.declaration;
   document.getElementById("date").textContent = data.date;
