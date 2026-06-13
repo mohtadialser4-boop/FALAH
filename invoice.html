@@ -124,7 +124,7 @@ button:hover {
     <img src="f.jpg">
   </div>
 
-  <div class="sub">مؤسسة فلاح الهاجري للتخليص الجمركي</div>
+  <div class="sub" id="companyName"></div>
 
   <table>
     <tr><th>اسم المنفذ</th><td id="port"></td></tr>
@@ -169,7 +169,8 @@ button:hover {
 window.onload = () => {
   const data = JSON.parse(localStorage.getItem("invoiceData"));
   if (!data) return;
-
+  document.getElementById("companyName").textContent =
+  data.companyName || "مؤسسة فلاح الهاجري للتخليص الجمركي";
   document.getElementById("port").textContent = data.port;
   document.getElementById("declaration").textContent = data.declaration;
   document.getElementById("date").textContent = data.date;
