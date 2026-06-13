@@ -153,10 +153,12 @@ button:hover {
   </div>
 
   <div class="footer">
-    <p>.</p>
-     <p>.</p>
-      <p>.</p>
-    <P class="sub" id="companyName"></P>
+  
+  <div class="sub">
+    <div id="companyName"></div>
+    <div id="companyOwner" style="margin-top:8px;font-size:18px;"></div>
+    <div id="companyPhone" style="margin-top:5px;font-size:18px;"></div>
+</div>
     <img src="sor.png" class="stamp">
   </div>
 
@@ -169,6 +171,14 @@ button:hover {
 window.onload = () => {
   const data = JSON.parse(localStorage.getItem("invoiceData"));
   if (!data) return;
+  document.getElementById("companyName").textContent =
+  data.companyName || "";
+
+document.getElementById("companyOwner").textContent =
+  data.companyOwner || "";
+
+document.getElementById("companyPhone").textContent =
+  data.companyPhone ? `📞 ${data.companyPhone}` : "";
   document.getElementById("companyName").textContent =
   data.companyName || "مؤسسة ";
   document.getElementById("port").textContent = data.port;
